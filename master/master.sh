@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script for install Ansible and Ansible tower ons CentOS/8
+# Provisioning script for CentOS/8
 # Author: Fran Frias
 # Date: 23/01/2023
 
