@@ -1,0 +1,66 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+#--------------------------------------------------------------------------------------
+    config.vm.define "client1" do |master|
+      master.vm.box = "centos/8"
+      master.vm.hostname = "client1"
+      master.vm.network :private_network, ip: "192.168.10.60"
+      master.vm.provider "virtualbox" do |v|
+        v.customize ["modifyvm", :id, "--ioapic", "on"]
+        v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+        v.customize ["modifyvm", :id, "--name", "client1"]
+        v.customize ["modifyvm", :id, "--memory", 1024]
+        v.customize ["modifyvm", :id, "--cpus", 1]
+    end
+
+    master.vm.provision "shell", path: "./clients.sh"
+    end
+  #--------------------------------------------------------------------------------------
+  config.vm.define "client2" do |master|
+    master.vm.box = "centos/8"
+    master.vm.hostname = "client2"
+    master.vm.network :private_network, ip: "192.168.10.61"
+    master.vm.provider "virtualbox" do |v|
+      v.customize ["modifyvm", :id, "--ioapic", "on"]
+      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v.customize ["modifyvm", :id, "--name", "client2"]
+      v.customize ["modifyvm", :id, "--memory", 1024]
+      v.customize ["modifyvm", :id, "--cpus", 1]
+  end
+
+  master.vm.provision "shell", path: "./clients.sh"
+  end
+  #--------------------------------------------------------------------------------------
+  config.vm.define "client3" do |master|
+    master.vm.box = "centos/8"
+    master.vm.hostname = "client3"
+    master.vm.network :private_network, ip: "192.168.10.62"
+    master.vm.provider "virtualbox" do |v|
+      v.customize ["modifyvm", :id, "--ioapic", "on"]
+      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v.customize ["modifyvm", :id, "--name", "client3"]
+      v.customize ["modifyvm", :id, "--memory", 1024]
+      v.customize ["modifyvm", :id, "--cpus", 1]
+  end
+
+  master.vm.provision "shell", path: "./clients.sh"
+  end
+  #--------------------------------------------------------------------------------------
+  config.vm.define "client4" do |master|
+    master.vm.box = "centos/8"
+    master.vm.hostname = "client4"
+    master.vm.network :private_network, ip: "192.168.10.63"
+    master.vm.provider "virtualbox" do |v|
+      v.customize ["modifyvm", :id, "--ioapic", "on"]
+      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v.customize ["modifyvm", :id, "--name", "client4"]
+      v.customize ["modifyvm", :id, "--memory", 1024]
+      v.customize ["modifyvm", :id, "--cpus", 1]
+  end
+
+  master.vm.provision "shell", path: "./clients.sh"
+  end
+  #--------------------------------------------------------------------------------------
+end
