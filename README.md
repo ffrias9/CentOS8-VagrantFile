@@ -7,4 +7,7 @@ Con el Vagrantfile de la carpeta "clients" se crearán 4 máquinas, nuevamente e
 
 La idea es, desde la máquina "master" controlar los 4 hosts "clients" a través de Ansible. Para poder ejecutar correctamente algín playbook de Ansible, deberemos crear un par de claves ssh públca-privada en la máquina máster, y compartir dicha clave con los hosts clientes.
 
-Se pueden modificar los scripts de aprovisionamiento si quieres agregar o eliminar algún comando.
+Se pueden modificar los scripts de aprovisionamiento si quieres agregar o eliminar algún comando. También se pueden cambiar algunos valores del vagrantfile, como la cantidad de memoria RAM, el número de núcleos de CPU, o las direcciones IP.
+
+El usuario de las máquinas será "vagrant" con contraseña "vagrant".
+La contraseña del usuario "root" será "toor" (se puede cambiar esto en el script de aprovisionamiento).
