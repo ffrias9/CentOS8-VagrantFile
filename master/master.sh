@@ -1,22 +1,17 @@
 #!/bin/bash
 
-# Provisioning script for CentOS/8
+# Provisioning script for Ansible master host
 # Author: Fran Frias
 # Date: 23/01/2023
 
-sudo sed -i -e "s|mirrorlist=|#mirrorlist=|g" /etc/yum.repos.d/CentOS-*
-sudo sed -i -e "s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g" /etc/yum.repos.d/CentOS-*
-
-sudo dnf clean all
-sudo dnf -y swap centos-linux-repos centos-stream-repos
+sudo yum remove python3 -y
+sudo yum install python3.9 -y
+python3 -m pip install --user ansible
+sudo yum install git -y
 
 sudo dnf -y update && sudo dnf -y upgrade
 
-sudo dnf makecache
-sudo dnf -y install epel-release
-sudo dnf makecache
 sudo dnf -y install vim
-sudo dnf -y install ansible
 
 sudo dnf -y install neofetch
 

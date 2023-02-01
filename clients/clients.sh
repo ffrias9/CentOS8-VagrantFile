@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Provisioning script for CentOS/8
+# Provisioning script for client hosts
 # Author: Fran Frias
 # Date: 23/01/2023
 
